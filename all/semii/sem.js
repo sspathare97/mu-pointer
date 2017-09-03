@@ -1,6 +1,6 @@
 var sem={
 	"course":"Engineering",
-	"year":"First Year",
+	"year":"First Year(FE)",
 	"branch":"Common to all",
 	"sem":"II",
 	"subjects":[

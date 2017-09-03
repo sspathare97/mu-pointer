@@ -1,7 +1,7 @@
 var sem={
 	"course":"Engineering",
-	"year":"Fourth Year",
-	"branch":"Computer Engineering",
+	"year":"Fourth Year(BE)",
+	"branch":"Computer Engineering(CMPN)",
 	"sem":"VIII",
 	"subjects":[
 		{
@@ -30,8 +30,8 @@ var sem={
 			"marks":[0,0,0,50,50,6]
 		},
 		{
-			"name":"Cloud Computing Laboratory",
-			"sname":"CCL",
+			"name":"Cloud Computing",
+			"sname":"CC",
 			"marks":[0,0,0,25,0,1]
 		},
 		{

@@ -1,3 +1,0 @@
-Table layout for course branch year sem result pointer %
-Main table bad dom structure fixed
-Main table now every element has class rsptbl, used for responsive design

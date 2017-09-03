@@ -1,0 +1,301 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON Generator for MU Pointer</title>
+<style>
+input.m{
+	width:30px;
+}
+input.n{
+	width:350px;
+}
+input.p{
+	width:50px;
+}
+</style>
+</head>
+<body><b>JSON Generator for MU Pointer</b><br />
+<form onSubmit="return false;">
+<input type="button" onClick="insrow()" value="Insert Subject">
+<input type="button" onClick="delrow()" value="Delete Subject"> <input type="reset" value="Reset"> <input type="button" value="Refresh" onclick="refr()">
+<br />
+
+<table style="width:230px; border-collapse:collapse;" border="0">
+<tr>
+<td width="60px" align="right"><label>Course:</label></td>
+<td width="165px" align="left">
+<select id="c">
+<option>Engineering</option>
+</select>
+</td>
+</tr>
+<tr>
+<td align="right"><label>Year:</label></td>
+<td align="left">
+<select id="y" onChange="selectsem()">
+<option>First Year(FE)</option>
+<option>Second Year(SE)</option>
+<option>Third Year(TE)</option>
+<option>Fourth Year(BE)</option>
+</select>
+</td>
+</tr>
+<tr>
+<td align="right"><label>Branch:</label></td>
+<td align="left">
+<select id="b">
+<option>Common to all</option>
+</select>
+</td>
+</tr>
+<tr>
+<td align="right"><label>Sem:</label></td>
+<td align="left">
+<select id="s">
+<option>I</option>
+<option>II</option>
+</select>
+</td>
+</tr>
+</table>
+
+Subjects:<span id="rw">1</span><br />Name:SName:Marks[0 to 5]<br />
+<table border="1" style="border-collapse:collapse;"><tbody id="main" >
+<tr><td>
+<input type="text" id="fn0" onKeyUp="invalid(event)" maxlength="2000" class="n" value="Total" disabled><input type="text" id="sn0" onKeyUp="invalid(event)" maxlength="2000" class="p" value="Total" disabled><input type="text" id="m00" maxlength="3" onKeyUp="invalid(event)" class="m"><input type="text" id="m10" maxlength="3" onKeyUp="invalid(event)" class="m"><input type="text" id="m20" maxlength="2" onKeyUp="invalid(event)" class="m"><input type="text" id="m30" maxlength="3" onKeyUp="invalid(event)" class="m"><input type="text" id="m40" maxlength="3" onKeyUp="invalid(event)" class="m"><input type="text" id="m50" maxlength="2" onKeyUp="invalid(event)" class="m">
+</td></tr>
+</tbody></table>
+<input type="button" value="Generate" onClick="genjson()">  <input type="button" value="Save" onclick="savejs()">  <input type="button" value="Open" onclick="redirect()">
+<br /><br />JSON:<br />
+<textarea id="jsonta" rows="50" style="width:660px;"></textarea>
+</form>
+<script>
+var main=document.getElementById("main"),rows=main.children.length;
+function insrow(){
+	//getrow();
+	rows=main.children.length;
+	main.innerHTML+="<tr><td><input type=\"text\" id=\"fn"+parseInt(rows)+"\" onKeyUp=\"invalid(event)\" maxlength=\"2000\" class=\"n\"><input type=\"text\" id=\"sn"+parseInt(rows)+"\" onKeyUp=\"invalid(event)\" maxlength=\"2000\" class=\"p\"><input type=\"text\" id=\"m0"+parseInt(rows)+"\" maxlength=\"2\" onKeyUp=\"invalid(event)\" class=\"m\"><input type=\"text\" id=\"m1"+parseInt(rows)+"\" maxlength=\"2\" onKeyUp=\"invalid(event)\" class=\"m\"><input type=\"text\" id=\"m2"+parseInt(rows)+"\" maxlength=\"1\" onKeyUp=\"invalid(event)\" class=\"m\"><input type=\"text\" id=\"m3"+parseInt(rows)+"\" maxlength=\"2\" onKeyUp=\"invalid(event)\" class=\"m\"><input type=\"text\" id=\"m4"+parseInt(rows)+"\" maxlength=\"2\" onKeyUp=\"invalid(event)\" class=\"m\"><input type=\"text\" id=\"m5"+parseInt(rows)+"\" maxlength=\"1\" onKeyUp=\"invalid(event)\" class=\"m\"></td></tr>";
+	rows=main.children.length;
+	document.getElementById("rw").innerHTML=rows;
+}
+function delrow(){
+	//getrow();
+	rows=main.children.length-1;
+	main.removeChild(main.children[rows]);
+	rows=main.children.length;
+	document.getElementById("rw").innerHTML=rows;
+}
+function getrow(){
+	rows=main.children.length;
+	alert("r="+rows);
+	for(var i=0;i<rows;i++)
+	alert(main.children[i]);
+}
+function redirect(){
+	var yr=document.getElementById("y").selectedIndex;
+	var br=document.getElementById("b").selectedIndex;
+	var sm=document.getElementById("s").selectedIndex;
+	var lb,ls;
+	if(yr==0){
+		lb="all";
+		switch(sm){
+			case 0:
+			ls="semi";
+			break;
+			case 1:
+			ls="semii";
+			break;
+		}
+	}
+	else{
+		switch(br){
+			case 0:
+			lb="cmpn";
+			break;
+			case 1:
+			lb="it";
+			break;
+			case 2:
+			lb="extc";
+			break;
+			case 3:
+			lb="mech";
+			break;
+			case 4:
+			lb="civil";
+			break;
+			case 5:
+			lb="etrx";
+			break;
+			
+		}
+		switch(yr){
+			case 1:
+			if(sm==0)
+			ls="semiii";
+			else
+			ls="semiv";
+			break;
+			case 2:
+			if(sm==0)
+			ls="semv";
+			else
+			ls="semvi";
+			break;
+			case 3:
+			if(sm==0)
+			ls="semvii";
+			else
+			ls="semviii";
+			break;
+		}
+	}
+    var win = window.open("../site/"+lb+"/"+ls, '_blank');
+    win.focus();
+	return false;
+}
+function invalid(event){
+	//tab or shift tab navation
+	if(event.keyCode==9 || event.keyCode==16)
+		return false;
+	var marks=event.srcElement || event.target;
+	//arrow key navigation
+	var next=marks;
+	switch(event.keyCode){
+		case 37:
+			if(next==next.parentElement.firstElementChild)
+			next=next.parentElement.parentElement.previousElementSibling.firstElementChild.lastElementChild;
+			else
+			next=next.previousElementSibling;
+			next.focus();
+			return false;
+		case 39:
+			if(next==next.parentElement.parentElement.parentElement.lastElementChild.lastElementChild.lastElementChild)
+			return false;
+			if(next==next.parentElement.lastElementChild)
+			next=next.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild;
+			else
+			next=next.nextElementSibling;
+			next.focus();
+			return false;
+		case 38:
+			var id=marks.getAttribute("id");
+			if(parseInt(id)==0)
+			return false;
+			var nxid=parseInt(id.slice(2))-1;
+			document.getElementById(id.slice(0,2)+nxid).focus();
+			return false;
+		case 40:
+			var id=marks.getAttribute("id");
+			var nxid=parseInt(id.slice(2))+1;
+			if(parseInt(nxid)==document.getElementById("main").children.length)
+			return false;
+			document.getElementById(id.slice(0,2)+nxid).focus();
+			return false;
+			
+	}
+	/*
+	//focus next input
+	if(marks.value.length >= marks.attributes["maxlength"].value || event.keyCode==13 && marks.value!=""){
+		if(marks.value.length >= marks.attributes["maxlength"].value && parseInt(marks.value)==0)
+			marks.value="0";
+		
+		
+		if(next==next.parentElement.parentElement.parentElement.lastElementChild.lastElementChild.lastElementChild){
+			marks.blur();
+			genjson();
+			return;
+		}
+		if(next==next.parentElement.lastElementChild){
+			next=next.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild;
+			next.focus();
+			return;	
+		}
+		next=next.nextElementSibling;
+		next.focus();
+	}*/
+	
+}
+function selectsem(){
+	var yr=document.getElementById("y");
+	var br=document.getElementById("b");
+	var sm=document.getElementById("s");
+	brold=br.selectedIndex;
+	if(yr.selectedIndex==0){
+		br.innerHTML="<option>Common to all</option>";
+		sm.innerHTML="<option>I</option><option>II</option>";
+		return;
+	}
+	else{
+		br.innerHTML="<option>Computer Engineering(CMPN)</option><option>Information Technology(IT)</option><option>Electronics and Telecommunication(EXTC)</option><option>Mechanical Engineering(MECH)</option><option>Civil Engineering(CIVIL)</option><option>Electronics Engineering(ETRX)</option>";
+		br.selectedIndex=brold;
+		switch(yr.selectedIndex){
+			case 1:{
+			sm.innerHTML="<option>III</option><option>IV</option>";
+			break;
+			}
+			case 2:{
+			sm.innerHTML="<option>V</option><option>VI</option>";
+			break;
+			}
+			case 3:{
+			sm.innerHTML="<option>VII</option><option>VIII</option>";
+			break;
+			}
+		}
+	}
+}
+function genjson(){
+	rows=main.children.length;
+	var c=document.getElementById("c").value;
+	var y=document.getElementById("y").value;
+	var b=document.getElementById("b").value;
+	var s=document.getElementById("s").value;
+	var json="var sem={\n\t\"course\":\""+c+"\",\n\t\"year\":\""+y+"\",\n\t\"branch\":\""+b+"\",\n\t\"sem\":\""+s+"\",\n\t\"subjects\":[\n";
+	for(var i=1;i<rows;i++){
+		if(i==-1)
+		i=0;
+		var n=document.getElementById("fn"+i).value;
+		var p=document.getElementById("sn"+i).value;
+		var sm0=document.getElementById("m0"+i).value;
+		var sm1=document.getElementById("m1"+i).value;
+		var sm2=document.getElementById("m2"+i).value;
+		var sm3=document.getElementById("m3"+i).value;
+		var sm4=document.getElementById("m4"+i).value;
+		var sm5=document.getElementById("m5"+i).value;
+		json+="\t\t{\n\t\t\t\"name\":\""+n+"\",\n\t\t\t\"sname\":\""+p+"\",\n\t\t\t\"marks\":["+sm0+","+sm1+","+sm2+","+sm3+","+sm4+","+sm5+"]\n\t\t}";
+		if(i!=0)
+			json+=",\n";
+		else
+			json+="\n\t]\n}";
+		if(i==rows-1)
+			i=-2;
+		if(i==0)
+		break;
+	}
+	document.getElementById("jsonta").innerHTML=json;
+}
+
+function savejs()
+{
+    var textToSave = document.getElementById("jsonta").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/javascript"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "sem.js";
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+	document.body.removeChild(downloadLink)
+}
+function refr(){
+	location.reload();
+}
+insrow();insrow();insrow();insrow();insrow();insrow();
+</script>
+</body>
+</html>

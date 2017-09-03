@@ -1,7 +1,7 @@
 var sem={
 	"course":"Engineering",
-	"year":"Third Year",
-	"branch":"Information Technology",
+	"year":"Third Year(TE)",
+	"branch":"Information Technology(IT)",
 	"sem":"V",
 	"subjects":[
 		{

@@ -1,7 +1,7 @@
 var sem={
 	"course":"Engineering",
-	"year":"Fourth Year",
-	"branch":"Computer Engineering",
+	"year":"Fourth Year(BE)",
+	"branch":"Computer Engineering(CMPN)",
 	"sem":"VII",
 	"subjects":[
 		{

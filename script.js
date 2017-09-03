@@ -2,11 +2,13 @@
 
 {
 	var i;
-	document.getElementById("tbcourse").innerHTML=sem.course;
-	document.getElementById("tbyear").innerHTML=sem.year;
-	document.getElementById("tbbranch").innerHTML=sem.branch;
-	document.getElementById("tbsem").innerHTML=sem.sem;
-	
+	document.getElementById("cs").value=sem.course;
+	document.getElementById("yr").value=sem.year;
+	selectsem();
+	document.getElementById("br").value=sem.branch;
+	selectsem();
+	document.getElementById("sm").value=sem.sem;
+	var relpath="../../";
 	//update table with subject rows
 	var trows="";
 	for(i=0;i<sem.subjects.length;i++){
