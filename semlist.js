@@ -9,7 +9,7 @@ function selectsem(){
 		return;
 	}
 	else{
-		br.innerHTML="<option>Computer Engineering(CMPN)</option><option>Information Technology(IT)</option><option>Electronics and Telecommunication(EXTC)</option><option>Mechanical Engineering(MECH)</option>";
+		br.innerHTML="<option>Computer Engineering(CMPN)</option><option>Information Technology(IT)</option><option>Electronics and Telecommunication(EXTC)</option><option>Mechanical Engineering(MECH)</option><option>Civil Engineering(CIVIL)</option>";
 		br.selectedIndex=brold;
 		switch(yr.selectedIndex){
 			case 1:{
@@ -56,6 +56,9 @@ function redirect(){
 			break;
 			case 3:
 			lb="mech";
+			break;
+			case 4:
+			lb="civil";
 			break;
 			
 		}

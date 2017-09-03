@@ -109,14 +109,19 @@ function pntcalc(){
 	  for(i=0; i<cred.length; i++) {
 		cred[i].style.display = "";
 	  }
-	  document.getElementById("Container").style.maxWidth="1270px";
+	  document.getElementById("Container").style.maxWidth="1300px";
 	  document.getElementById("med").setAttribute("href","../../media1.css");
+	var mq1 = window.matchMedia("(max-width: 650px)");
+	if (matchMedia)
+	if (mq1.matches){
+	  window.location="#";
+	}
 	}
 	else{
 	  for(i=0; i<cred.length; i++) {
 		cred[i].style.display = "none";
 	  }
-	  document.getElementById("Container").style.maxWidth="620px";
+	  document.getElementById("Container").style.maxWidth="650px";
 	  document.getElementById("med").setAttribute("href","../../media2.css");
 	}
 	
