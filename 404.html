@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MU Pointer: 404</title>
+<style>
+a:link,a:visited{
+	color:blue;
+	text-align:left;
+}
+body{
+	font-family:Arial;
+	font-size:16px;
+}
+</style>
+</head>
+<body>
+<div style="font-size:larger;font-weight: bold;text-align:center;width:auto;"><a href="http://mupointer.tk">MU Pointer</a></div>
+<div style="margin:auto;text-align: center;">
+<h1>404</h1>
+<h3>Sorry, the page cannot be found.</h3>
+If you think this is an error, please <a target="_blank" href="mailto:sspathare97@gmail.com?Subject=Bugs%20in%20MU%20Pointer">Report Bugs</a>.<br/><br />
+<!--You are being redirected to homepage in <span id="tim">5</span> seconds.-->
+Closest Matches:</div><br />
+<div id="mat" style="max-width:250px;width:auto;margin:auto;"></span>
+<script type="text/javascript">
+var url=window.location.href;
+var mat=document.getElementById("mat");
+var match=[],m=0;
+if(url.indexOf("all")!=-1 || url.indexOf("semi")!=-1){
+	var ini="http://mupointer.tk/all/";
+	match=[ini+"semi",ini+"semii"];
+	m=2;
+}
+var branches=["cmpn","it","extc"];
+var branch=[],sem=[],b=0;s=0;
+var branches=["cmpn","it","extc"];
+var sems=["semiii","semiv","semv","semvi","semvii","semviii"];
+for(var i=0;i<branches.length;i++){
+	if(url.indexOf(branches[i])!=-1){
+	branch[b]=branches[i];
+	b++;
+	}
+}
+for(var i=0;i<sems.length;i++){
+	if(url.indexOf(sems[i])!=-1){
+	sem[s]=sems[i];
+	s++;
+	}
+}
+var ini="http://mupointer.tk/";
+if(b!=0 || s!=0){
+	if(b==0)
+	branch=["cmpn","it","extc"];
+	if(s==0)
+	sem=["semiii","semiv","semv","semvi","semvii","semviii"];
+	for(var j=0;j<branch.length;j++)
+		for(var k=0;k<sem.length;k++){
+			match[m]=ini+branch[j]+"/"+sem[k];
+			m++;
+		}
+}
+else{
+	match[m]="http://mupointer.tk/";
+}		
+for(var i=0;i<match.length;i++){
+	mat.innerHTML+="<a href=\""+match[i]+"\">"+match[i]+"</a><br />";
+}
+</script>
+</body>
+</html>
