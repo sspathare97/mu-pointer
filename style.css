@@ -1,6 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
-
+img[alt="www.000webhost.com"]{
+    display: none!important;
+}
 /*media*/
 @media 
 only screen and (max-width: 1000px),
