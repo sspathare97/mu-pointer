@@ -1,1 +1,1 @@
-var lm="<a id=\"ch\">Version 2.6.3</a>, Last modified:<br />9th August, 2016 at 23:50 HRS (IST)<br /><br />";
+var lm="<a id=\"ch\">Version 3.0</a>, Last modified:<br />11th August, 2016 at 20:20 HRS (IST)<br /><br />";

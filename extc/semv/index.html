@@ -1,9 +1,11 @@
 <!doctype html>
 <html>
 <head>
+<title>MU Pointer</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MU Pointer</title>
+<meta name="keywords" content="MU Pointer CGPA SGPA Mumbai University Engineering">
+<meta name="description" content="Calculate your Pointer (SGPA and CGPA) with different combinations of marks obtained in theory, practical and term work. You can also export it as Excel Sheet for future reference (from Desktop only). Have a great day!">
 <link href="../../style.css" rel="stylesheet" type="text/css">
 <link href="../../media1.css" rel="stylesheet" type="text/css" id="med">
 </head>
@@ -14,6 +16,15 @@
 <form onSubmit="return redirect()">
 <table style="width:230px; margin:auto; border-collapse:collapse;" border="0">
 <tr>
+<td align="right"><label>Pointer:</label></td>
+<td align="left">
+<select id="gp" onChange="selectsem()">
+<option>SGPA</option>
+<option>CGPA</option>
+</select>
+</td>
+</tr>
+<tr>
 <td width="60px" align="right"><label>Course:</label></td>
 <td width="165px" align="left">
 <select id="cs">
@@ -21,7 +32,7 @@
 </select>
 </td>
 </tr>
-<tr>
+<tr id="yrtr">
 <td align="right"><label>Year:</label></td>
 <td align="left">
 <select id="yr" onChange="selectsem()">
@@ -40,7 +51,7 @@
 </select>
 </td>
 </tr>
-<tr>
+<tr id="smtr">
 <td align="right"><label>Sem:</label></td>
 <td align="left">
 <select id="sm">
@@ -129,13 +140,13 @@
 <label class="noselect">Show Pointer Calculation columns<input type="checkbox" checked id="calc" onchange="pntcalc()"/></label>
 </form>
 <br /><br />
-<table style="width:240px; margin:auto; border-collapse:collapse;" border="0">
+<table style="width:240px; margin:auto; border-collapse:collapse;font-weight:bold;" border="0">
 <tr>
 <td width="115px" align="right">Result =&nbsp;</td>
 <td width="115px" align="left"><span id="reslt"></span></td>
 </tr>
 <tr>
-<td align="right">Pointer =&nbsp;</td>
+<td align="right">SGPA =&nbsp;</td>
 <td align="left"><span id="pointer"></span></td>
 </tr>
 <tr>
@@ -159,7 +170,7 @@ PXH9-CW02-OGRQ-XETV" width="150" height="40" src="http://static.copyrighted.com/
 <script src="../../lm.js"></script>
 <script src="sem.js" type="text/javascript"></script>
 <script src="../../semlist.js" type="text/javascript"></script>
-<script src="../../script.js" type="text/javascript"></script>
+<script src="../../sgpa.js" type="text/javascript"></script>
 <script>
 document.getElementById("lastup").innerHTML=lm;
 document.getElementById("ch").setAttribute("href","../../changelog.html");

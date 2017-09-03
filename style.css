@@ -12,20 +12,20 @@ only screen and (max-width: 1000px),
 /*Combo*/
 @charset "utf-8";
 /* CSS Document */
-table.rsptbl { 
+table.rsptbl,table.tbl { 
   width: 100%; 
   border-collapse: collapse; 
 }
 /* Zebra striping */
-tr:nth-of-type(odd).rsptbl{ 
+tr:nth-of-type(odd).rsptbl,tr:nth-of-type(odd).tbl{ 
   background: #f5f5f5; 
 }
-th.rsptbl { 
+th.rsptbl,th.tbl { 
   background: #333; 
   color: white; 
   font-weight: bold; 
 }
-td.rsptbl, th.rsptbl{ 
+td.rsptbl, th.rsptbl,td.tbl, th.tbl{ 
   padding: 5px; 
   border: 1px solid #ccc; 
   text-align: left; 

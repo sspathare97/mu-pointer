@@ -1,9 +1,11 @@
 <!doctype html>
 <html>
 <head>
+<title>MU Pointer</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MU Pointer</title>
+<meta name="keywords" content="MU Pointer CGPA SGPA Mumbai University Engineering">
+<meta name="description" content="Calculate your Pointer (SGPA and CGPA) with different combinations of marks obtained in theory, practical and term work. You can also export it as Excel Sheet for future reference (from Desktop only). Have a great day!">
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body class="noselect">
@@ -11,19 +13,28 @@
 </div>
 <div id="Container">
 <div class="Heading" style="max-width:450px; width:auto; text-align:justify;">
-Calculate your Pointer (currently SGPI) with different combinations of marks obtained in theory, practical and term work. You can also export it as Excel Sheet for future reference (from Desktop only). Have a great day!</div><br />
+Calculate your Pointer (SGPA and CGPA) with different combinations of marks obtained in theory, practical and term work. You can also export it as Excel Sheet for future reference (from Desktop only). Have a great day!</div><br />
 Please select Semester for Pointer Calculation:<br /><br />
 <form onSubmit="return redirect()">
 <table style="width:230px; margin:auto; border-collapse:collapse;" border="0">
 <tr>
-<td width="60px" align="right"><label>Course:</label></td>
-<td width="165px" align="left">
-<select>
-<option>Engineering</option>
+<td align="right"><label>Pointer:</label></td>
+<td align="left">
+<select id="gp" onChange="selectsem()">
+<option>SGPA</option>
+<option>CGPA</option>
 </select>
 </td>
 </tr>
 <tr>
+<td width="60px" align="right"><label>Course:</label></td>
+<td width="165px" align="left">
+<select id="cs">
+<option>Engineering</option>
+</select>
+</td>
+</tr>
+<tr id="yrtr">
 <td align="right"><label>Year:</label></td>
 <td align="left">
 <select id="yr" onChange="selectsem()">
@@ -42,7 +53,7 @@ Please select Semester for Pointer Calculation:<br /><br />
 </select>
 </td>
 </tr>
-<tr>
+<tr id="smtr">
 <td align="right"><label>Sem:</label></td>
 <td align="left">
 <select id="sm">
@@ -51,7 +62,7 @@ Please select Semester for Pointer Calculation:<br /><br />
 </select>
 </td>
 </tr>
-</table>(More branches coming soon)<br /><br />
+</table><br />
 <input type="submit" value="Submit" />
 </form>
 </div>

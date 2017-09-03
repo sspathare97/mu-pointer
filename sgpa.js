@@ -458,7 +458,7 @@ function gentbl(){
 			  if(j==0)
 			  cell.innerHTML="Result = "+ document.getElementById("reslt").innerHTML; 
 			  if(j==1)
-			  cell.innerHTML="Pointer = "+ document.getElementById("pointer").innerHTML;
+			  cell.innerHTML="SGPA = "+ document.getElementById("pointer").innerHTML;
 			  if(j==2)
 			  cell.innerHTML="Percentage = "+ document.getElementById("perc").innerHTML;
 		  }
