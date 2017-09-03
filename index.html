@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MU Pointer</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="noselect">
+<div id="Caption"><a href="../../">MU Pointer</a><br /><br />Pointer Calculation
+</div>
+<div id="Container">
+<br />
+Please select Semester for Pointer Calculation:<br /><br />
+<form onSubmit="return redirect()">
+<table style="width:230px; margin:auto; border-collapse:collapse;" border="0">
+<tr>
+<td width="60px" align="right"><label>Course:</label></td>
+<td width="165px" align="left">
+<select>
+<option>Engineering</option>
+</select>
+</td>
+</tr>
+<tr>
+<td align="right"><label>Year:</label></td>
+<td align="left">
+<select id="yr" onChange="selectsem()">
+<option>First Year(FE)</option>
+<option>Second Year(SE)</option>
+<option>Third Year(TE)</option>
+<option>Fourth Year(BE)</option>
+</select>
+</td>
+</tr>
+<tr>
+<td align="right"><label>Branch:</label></td>
+<td align="left">
+<select id="br">
+<option>Common to all</option>
+</select>
+</td>
+</tr>
+<tr>
+<td align="right"><label>Sem:</label></td>
+<td align="left">
+<select id="sm">
+<option>I</option>
+<option>II</option>
+</select>
+</td>
+</tr>
+</table>(More semesters coming soon)<br /><br />
+<input type="submit" value="Submit" />
+</form>
+</div>
+<br />
+<div class="Heading">
+<div id="lastup"></div>
+<a target="_blank" href="mailto:sspathare97@gmail.com?Subject=Bugs%20in%20your%20website">Report Bugs</a>
+<br /><br />
+<div class="section">
+<a target="_blank" href="http://www.copyrighted.com/copyrights/view/pxh9-cw02-ogrq-xetv"><img class="Heading" border="0" alt="Copyrighted.com Registered &amp; Protected 
+PXH9-CW02-OGRQ-XETV" title="Copyrighted.com Registered &amp; Protected 
+PXH9-CW02-OGRQ-XETV" width="150" height="40" src="http://static.copyrighted.com/images/seal.gif" /></a>
+</div><br />
+<div class="section">Designed and Developed by
+<br /><a target="_blank" href="mailto:sspathare97@gmail.com">Sagar Pathare</a><br /><br />All Rights Reserved.
+</div>
+</div>
+<script src="lm.js"></script>
+<script>
+document.getElementById("lastup").innerHTML=lm;
+document.getElementById("yr").selectedIndex="0";
+document.getElementById("br").selectedIndex="0";
+document.getElementById("sm").selectedIndex="0";
+function selectsem(){
+	var br=document.getElementById("br");
+	var sm=document.getElementById("sm");
+	brold=br.selectedIndex;
+	if(yr.selectedIndex==0){
+		br.innerHTML="<option>Common to all</option>";
+		sm.innerHTML="<option>I</option><option>II</option>";
+		return;
+	}
+	else{
+		br.innerHTML="<option>Computer Engineering</option><option>Information Technology</option>";
+		br.selectedIndex=brold;
+		switch(yr.selectedIndex){
+			case 1:{
+			sm.innerHTML="<option>III</option><option>IV</option>";
+			break;
+			}
+			case 2:{
+			sm.innerHTML="<option>V</option><option>VI</option>";
+			break;
+			}
+			case 3:{
+			sm.innerHTML="<option>VII</option><option>VIII</option>";
+			break;
+			}
+		}
+	}
+}
+function redirect(){
+	var yr=document.getElementById("yr").selectedIndex;
+	var br=document.getElementById("br").selectedIndex;
+	var sm=document.getElementById("sm").selectedIndex;
+	var lb,ls;
+	if(yr==0){
+		lb="all";
+		switch(sm){
+			case 0:
+			ls="semi";
+			break;
+			case 1:
+			ls="semii";
+			break;
+		}
+	}
+	else{
+		switch(br){
+			case 0:
+			lb="cmpn";
+			break;
+			case 1:
+			lb="it";
+			break;
+			
+		}
+		switch(yr){
+			case 1:
+			if(sm==0)
+			ls="semiii";
+			else
+			ls="semiv";
+			break;
+			case 2:
+			if(sm==0)
+			ls="semv";
+			else
+			ls="semvi";
+			break;
+			case 3:
+			if(sm==0)
+			ls="semvii";
+			else
+			ls="semviii";
+			break;
+		}
+	}
+	window.location.href=lb+"/"+ls;
+	return false;
+}
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79588896-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
