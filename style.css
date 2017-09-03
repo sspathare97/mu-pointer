@@ -84,6 +84,7 @@ body{
 }
 .section{
 	 width:auto;
+	 line-height: 1.5;
 }
 /*ID's*/
 #Container{
