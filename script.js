@@ -430,7 +430,7 @@ function gentbl(){
 	tbl.style.display="none";
 	
 	  // creating all cells
-	  for (var i = 0; i < 10; i++) {
+	  for (var i = 0; i < sem.subjects.length+2; i++) {
 		  
 		// creates a table row
 		var row = document.createElement("tr");
@@ -439,7 +439,7 @@ function gentbl(){
 		  // creates a table cell
 		  var cell = document.createElement("td");
 		  //cell content
-		  if(i<9){
+		  if(i<sem.subjects.length+1){
 			  if(i>=1 && j>=1){
 				  if(j!=7 && j!=8 && j!=13 && j!=14 && j!=16)
 					cell.innerHTML+="\'";
@@ -449,7 +449,7 @@ function gentbl(){
 			  cell.innerHTML+=document.getElementById("i"+i+"j"+j).textContent;
 		  }
 		  //last row
-		  if(i==9){
+		  if(i==sem.subjects.length+1){
 			  if(j==0)
 			  cell.innerHTML="Result = "+ document.getElementById("reslt").innerHTML; 
 			  if(j==1)
@@ -458,7 +458,7 @@ function gentbl(){
 			  cell.innerHTML="Percentage = "+ document.getElementById("perc").innerHTML;
 		  }
 		  row.appendChild(cell);
-		  if(i==9){
+		  if(i==sem.subjects.length+1){
 			  cell.setAttribute("colspan","6");
 			  if(j==2)
 			  break;

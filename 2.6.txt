@@ -1,3 +1,0 @@
-media query event screen width change
-mech added
-subject alert name
