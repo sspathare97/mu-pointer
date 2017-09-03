@@ -1,8 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 @media 
-only screen and (max-width: 1300px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+only screen and (max-width: 1300px)  {
 
 	/* Force table to not be like tables anymore */
 	table.rsptbl, thead.rsptbl, tbody.rsptbl, th.rsptbl, td.rsptbl, tr.rsptbl { 

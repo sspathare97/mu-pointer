@@ -14,7 +14,11 @@
 	for(i=0;i<sem.subjects.length;i++){
 		//row start
 		trows+="<tr class=\"rsptbl\">";
-		//subject name
+		if(i!=sem.subjects.length-1)
+		//subject name for subject
+		trows+="<td class=\"rsptbl\" id=\"i"+parseInt(i+1)+"j0\" data-th=\"Subject\" title=\""+sem.subjects[i].name+"\"><a href=\"javascript:void(0)\"  onclick=\"alt(event)\">"+sem.subjects[i].sname+"</a></td>";
+		else
+		//subject name for total
 		trows+="<td class=\"rsptbl\" id=\"i"+parseInt(i+1)+"j0\" data-th=\"Subject\" title=\""+sem.subjects[i].name+"\">"+sem.subjects[i].sname+"</td>";
 		//tt1
 		trows+="<td class=\"rsptbl\" id=\"i"+parseInt(i+1)+"j1\"  data-th=\"TT1\"><input "+dis(sem.subjects[i].marks[0],i,sem.subjects.length)+" class=\"Marks\" id=\"r"+parseInt(i+1)+"c1\" type=\"number\" min=\"0\" max=\""+sem.subjects[i].marks[0]+"\" maxlength=\"2\" onkeyup=\"invalid(event,"+sem.subjects[i].marks[0]+")\" /> /"+sem.subjects[i].marks[0]+"</td>";
@@ -76,6 +80,23 @@ function rst(){
 document.getElementById("pointer").innerHTML="";
 document.getElementById("perc").innerHTML="";
 document.getElementById("reslt").innerHTML="";
+}
+
+// media query event handler
+var mq = window.matchMedia("(min-width: 1300px)");
+if (matchMedia){
+  mq.addListener(WidthChange);
+  WidthChange();
+}
+
+// media query change
+function WidthChange() {
+	var calc= document.getElementById("calc");
+	if (mq.matches)
+	calc.checked=true;
+	else
+	calc.checked=false;
+	pntcalc();
 }
 
 //visibility of pointer calculation
@@ -455,6 +476,11 @@ function gentbl(){
 	
 }
 
+//alert cell
+function alt(event){
+	var src=event.srcElement || event.target;
+	alert(src.parentElement.getAttribute("title"));	
+}
 //export as excel function
 
 var savex = (function() {
