@@ -66,7 +66,7 @@ function invalid(event){
 		var next=marks;
 		if(next==next.parentElement.parentElement.parentElement.lastElementChild.previousElementSibling.firstElementChild.nextElementSibling.firstElementChild){
 			marks.blur();
-			return false;
+			return calculate();
 		}
 		next.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.focus();
 	}
@@ -121,7 +121,7 @@ function calculate(){
 	for(var i=0;i<8;i++){
 		var sgpa=document.getElementById("i"+(i+1)+"j1").firstElementChild;
 		if(sgpa.value=="")
-			break;
+			return false;
 		var cxg=document.getElementById("i"+(i+1)+"j3").firstElementChild;
 		var c=document.getElementById("i"+(i+1)+"j2").firstElementChild;
 		cxg.value=Math.round(sgpa.value*c.value);

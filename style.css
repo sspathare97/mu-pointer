@@ -1,8 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-img[alt="www.000webhost.com"]{
-    display: none!important;
-}
+
 /*media*/
 @media 
 only screen and (max-width: 1000px),
@@ -86,7 +84,6 @@ body{
 }
 .section{
 	 width:auto;
-	 line-height: 1.5;
 }
 /*ID's*/
 #Container{
